@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey;
  * @author Gaëtan HERFRAY
  */
 // We declare project as a table with FK = projectId and PK = id / @ Sandrine MAILLARD
-@Entity(tableName = "tasks")
+@Entity(tableName = "Task")
 
 public class Task {
     /**
