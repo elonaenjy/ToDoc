@@ -75,17 +75,6 @@ public abstract class TodocDatabase extends RoomDatabase {
         };
     }
 
-    public static synchronized TodocDatabase getInstanceTask(final Context context) {
-        if (INSTANCE == null) {
-            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                    TodocDatabase.class,
-                    "Task")
-                    .addCallback(roomCallBack)
-                    .build();
-        }
-        return INSTANCE;
-    }
-
     private final static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
