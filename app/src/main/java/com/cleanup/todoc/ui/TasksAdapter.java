@@ -25,7 +25,10 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * The list of tasks the adapter deals with
      */
     @NonNull
-    private List<Task> tasks;
+    private List<Task> taskList;
+
+    private List<Project> projectList;
+
 
     /**
      * The listener for when a task needs to be deleted
@@ -39,7 +42,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * @param tasks the list of tasks the adapter deals with to set
      */
     TasksAdapter(@NonNull final List<Task> tasks, @NonNull final DeleteTaskListener deleteTaskListener) {
-        this.tasks = tasks;
+        this.taskList = tasks;
         this.deleteTaskListener = deleteTaskListener;
     }
 
@@ -49,7 +52,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * @param tasks the list of tasks the adapter deals with to set
      */
     void updateTasks(@NonNull final List<Task> tasks) {
-        this.tasks = tasks;
+        this.taskList = tasks;
         notifyDataSetChanged();
     }
 
@@ -62,12 +65,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder taskViewHolder, int position) {
-        taskViewHolder.bind(tasks.get(position));
+        taskViewHolder.bind(taskList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return tasks.size();
+        return taskList.size();
     }
 
     /**
@@ -149,7 +152,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
             lblTaskName.setText(task.getName());
             imgDelete.setTag(task);
 
-            final Project taskProject = task.getProject();
+            final Project taskProject = getProject(task.getProjectId());
             if (taskProject != null) {
                 imgProject.setSupportImageTintList(ColorStateList.valueOf(taskProject.getColor()));
                 lblProjectName.setText(taskProject.getName());
@@ -157,7 +160,20 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
                 imgProject.setVisibility(View.INVISIBLE);
                 lblProjectName.setText("");
             }
-
         }
+
+
+        private Project getProject(long projectId) {
+            Project project = null;
+            if (projectList != null) {
+                for (Project p : projectList)
+                    if (p.getId() == projectId) {
+                        project = p;
+                    }
+            }
+            return project;
+        }
+
     }
+
 }

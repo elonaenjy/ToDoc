@@ -1,7 +1,5 @@
 package com.cleanup.todoc.repositories;
 
-import androidx.lifecycle.LiveData;
-
 import com.cleanup.todoc.database.dao.TaskDao;
 import com.cleanup.todoc.model.Task;
 
@@ -9,40 +7,35 @@ import java.util.List;
 
 public class TaskDataRepository {
 
-    private final TaskDao taskDao;
+    private static TaskDao taskDao;
 
     public TaskDataRepository(TaskDao taskDao) {
         this.taskDao = taskDao;
     }
 
-    public List<Task> getTasks() {
-        return this.taskDao.getTasks();
+    public static List<Task> getTasks() {
+        return taskDao.getTasks();
     }
 
-    public List<Task> getTasksAZ() {
-        return this.taskDao.getTasksAlphabeticalAZ();
+    public static List<Task> getTasksAZ() { return taskDao.getTasksAlphabeticalAZ(); }
+
+    public static List<Task> getTasksZA() {
+        return taskDao.getTasksAlphabeticalZA();
     }
 
-    public List<Task> getTasksZA() {
-        return this.taskDao.getTasksAlphabeticalZA();
+    public static List<Task> getTasksNewOld() {
+        return taskDao.getTasksNewToOld();
     }
 
-    public List<Task> getTasksNewOld() {
-        return this.taskDao.getTasksNewToOld();
+    public static List<Task> getTasksOldNew() {
+        return taskDao.getTasksOldToNew();
     }
 
-    public List<Task> getTasksOldNew() {
-        return this.taskDao.getTasksOldToNew();
-    }
-
-    // --- CREATE ---
-
-    public void addTask(Task task) {
+    public static void addTask(Task task) {
         taskDao.insertTask(task);
     }
 
-    // --- DELETE ---
-    public void deleteTask(long id) {
+    public static void deleteTask(long id) {
         taskDao.deleteTask(id);
     }
 

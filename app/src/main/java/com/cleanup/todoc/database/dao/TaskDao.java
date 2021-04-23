@@ -12,6 +12,7 @@ import java.util.List;
 @Dao
 public interface TaskDao {
 
+
     @Query("SELECT * FROM Task")
     List<Task> getTasks();
 
