@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         TodocDatabase.getInstance(context);
         projectList = projectRepository.getAllProjects();
 
-        TodocDatabase database = TodocDatabase.getInstanceTask(context);
         taskList = taskRepository.getAllTask();
 
         setContentView(R.layout.activity_main);
