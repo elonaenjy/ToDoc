@@ -110,17 +110,17 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         TodocDatabase.getInstance(context);
  //       allProjects = ProjectDataRepository.getAllProjects();
 
-        /**
-         * List of all current tasks of the application
-         */
-        taskList = taskRepository.getTasks();
-        projectList = projectRepository.getAllProjects();
         setContentView(R.layout.activity_main);
 
         listTasks = findViewById(R.id.list_tasks);
         lblNoTasks = findViewById(R.id.lbl_no_task);
 
         listTasks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        /**
+         * List of all current tasks of the application
+         */
+        taskList = taskRepository.getTasks();
+        projectList = projectRepository.getAllProjects();
 
         listTasks.setAdapter(adapter);
 

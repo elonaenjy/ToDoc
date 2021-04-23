@@ -15,24 +15,32 @@ import com.cleanup.todoc.database.dao.TaskDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 @Database(entities = {Project.class, Task.class}, version = 1, exportSchema = false)
 public abstract class TodocDatabase extends RoomDatabase {
 
-    // --- SINGLETON ---
     private static volatile TodocDatabase INSTANCE;
 
     // --- DAO ---
     public abstract ProjectDao projectDao();
+
     public abstract TaskDao taskDao();
 
+    private static final int NUMBER_OF_THREADS = 5;
+    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+
+
     // --- INSTANCE ---
-    public static TodocDatabase getInstance(Context context) {
+    public static final TodocDatabase getInstance(Context context) {
         if (INSTANCE == null) {
             synchronized (TodocDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             TodocDatabase.class, "ToDoc.db")
                             .addCallback(prepopulateDatabase())
+                            .addCallback(roomCallBack)
                             .build();
                 }
             }
@@ -67,4 +75,15 @@ public abstract class TodocDatabase extends RoomDatabase {
         };
     }
 
+    private final static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            databaseWriteExecutor.execute(() -> {
+                TaskDao dao = INSTANCE.taskDao();
+                dao.getTasks();
+            });
+        }
+    };
 }
+
