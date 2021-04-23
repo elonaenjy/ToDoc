@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cleanup.todoc.R;
 import com.cleanup.todoc.database.TodocDatabase;
+import com.cleanup.todoc.database.dao.ProjectDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 import com.cleanup.todoc.service.ProjectDataRepository;
@@ -39,11 +40,6 @@ import java.util.List;
  */
 public class MainActivity extends AppCompatActivity implements TasksAdapter.DeleteTaskListener {
     /**
-     * List of all projects available in the application
-     */
-        public TaskDataRepository taskRepository;
-    public ProjectDataRepository projectRepository;
-    /**
      * List of all current tasks of the application
      */
     @NonNull
@@ -53,6 +49,12 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      */
 
     private List<Project> projectList = new ArrayList<>();
+
+    /**
+     * List of all projects available in the application
+     */
+    public TaskDataRepository taskRepository;
+    public ProjectDataRepository projectRepository;
 
         /**
      * The adapter which handles the list of tasks
@@ -102,13 +104,15 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         /**
          * List of all projects available in the application
          */
         Context context = getApplicationContext();
         TodocDatabase.getInstance(context);
- //       allProjects = ProjectDataRepository.getAllProjects();
+        projectList = projectRepository.getAllProjects();
+
+        TodocDatabase database = TodocDatabase.getInstanceTask(context);
+        taskList = taskRepository.getAllTask();
 
         setContentView(R.layout.activity_main);
 
@@ -116,11 +120,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         lblNoTasks = findViewById(R.id.lbl_no_task);
 
         listTasks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        /**
-         * List of all current tasks of the application
-         */
-        taskList = taskRepository.getTasks();
-        projectList = projectRepository.getAllProjects();
 
         listTasks.setAdapter(adapter);
 
@@ -187,11 +186,8 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
             // If both project and name of the task have been set
             else if (taskProject != null) {
                 // TODO: Replace this by id of persisted task
-                long id = (long) (Math.random() * 50000);
-
 
                 Task task = new Task(
-                        id,
                         taskProject.getId(),
                         taskName,
                         new Date().getTime()
