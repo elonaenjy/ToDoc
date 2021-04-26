@@ -24,6 +24,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
     /**
      * The list of tasks the adapter deals with
      */
+
     @NonNull
     private List<Task> taskList;
 

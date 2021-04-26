@@ -21,7 +21,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cleanup.todoc.R;
 import com.cleanup.todoc.database.TodocDatabase;
-import com.cleanup.todoc.database.dao.ProjectDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 import com.cleanup.todoc.service.ProjectDataRepository;
