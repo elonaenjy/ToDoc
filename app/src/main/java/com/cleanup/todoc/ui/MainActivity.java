@@ -25,7 +25,7 @@ import com.cleanup.todoc.database.dao.ProjectDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 import com.cleanup.todoc.service.ProjectDataRepository;
-import com.cleanup.todoc.service.TaskDataRepository;
+import com.cleanup.todoc.service.TaskRepository;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,6 +39,7 @@ import java.util.List;
  * @author Gaëtan HERFRAY - update by Sandrine Maillard for P5.
  */
 public class MainActivity extends AppCompatActivity implements TasksAdapter.DeleteTaskListener {
+
     /**
      * List of all current tasks of the application
      */
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     /**
      * List of all projects available in the application
      */
-    public TaskDataRepository taskRepository;
+    public TaskRepository taskRepository;
     public ProjectDataRepository projectRepository;
 
         /**
@@ -109,9 +110,9 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
          */
         Context context = getApplicationContext();
         TodocDatabase.getInstance(context);
-        projectList = projectRepository.getAllProjects();
 
-        taskList = taskRepository.getAllTask();
+        taskList = TaskRepository.getTasks();
+        projectList = projectRepository.getAllProjects();
 
         setContentView(R.layout.activity_main);
 

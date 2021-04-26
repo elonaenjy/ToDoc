@@ -1,7 +1,5 @@
 package com.cleanup.todoc.service;
 
-import androidx.lifecycle.LiveData;
-
 import com.cleanup.todoc.database.dao.ProjectDao;
 import com.cleanup.todoc.model.Project;
 

@@ -15,6 +15,7 @@ import com.cleanup.todoc.database.dao.TaskDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
 
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -23,15 +24,12 @@ public abstract class TodocDatabase extends RoomDatabase {
 
     private static volatile TodocDatabase INSTANCE;
 
-
     // --- DAO ---
     public abstract ProjectDao projectDao();
-
     public abstract TaskDao taskDao();
 
     private static final int NUMBER_OF_THREADS = 5;
     public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
-
 
     // --- INSTANCE ---
     public static final TodocDatabase getInstance(Context context) {
@@ -75,16 +73,16 @@ public abstract class TodocDatabase extends RoomDatabase {
         };
     }
 
+
     private final static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
+            TaskDao taskDao = null;
             databaseWriteExecutor.execute(() -> {
-                TaskDao dao = INSTANCE.taskDao();
-                dao.getTasks();
+                List<Task> taskList = taskDao.getAllTask();
             });
         }
     };
-
 }
 

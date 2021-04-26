@@ -12,7 +12,7 @@ import java.util.List;
 public interface TaskDao {
 
     @Query("SELECT * FROM Task")
-    List<Task> getTasks();
+    List<Task> getAllTask();
 
     @Insert
     void insertTask(Task task);
@@ -31,4 +31,5 @@ public interface TaskDao {
 
     @Query("SELECT * FROM Task ORDER BY creationTimestamp ASC")
     List<Task> getTasksOldToNew();
+
 }
