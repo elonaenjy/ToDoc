@@ -9,16 +9,19 @@ import com.cleanup.todoc.database.dao.TaskDao;
 import com.cleanup.todoc.model.Task;
 
 import java.util.List;
+
 public class TaskRepository {
-    private static TaskDao taskDao;
+
+    private final TaskDao taskDao;
 
     public TaskRepository(TaskDao taskDao) {
         this.taskDao = taskDao;
     }
 
     // --- READ ---
-
-    public static List<Task> getTasks() {return taskDao.getAllTask(); }
+    public List<Task> getTasks() {
+        return taskDao.getAllTask();
+    }
 
     public List<Task> getTasksAZ() {
         return this.taskDao.getTasksAlphabeticalAZ();
@@ -37,10 +40,9 @@ public class TaskRepository {
     }
 
     // --- CREATE ---
-
     public void addTask(Task task) {
         taskDao.insertTask(task);
-    }
+        }
 
     // --- DELETE ---
     public void deleteTask(long id) {

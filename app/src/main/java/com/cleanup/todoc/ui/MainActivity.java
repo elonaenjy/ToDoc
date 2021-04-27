@@ -21,9 +21,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.cleanup.todoc.R;
 import com.cleanup.todoc.database.TodocDatabase;
+import com.cleanup.todoc.database.dao.ProjectDao;
+import com.cleanup.todoc.database.dao.TaskDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
-import com.cleanup.todoc.service.ProjectDataRepository;
+import com.cleanup.todoc.service.ProjectRepository;
 import com.cleanup.todoc.service.TaskRepository;
 
 import java.util.ArrayList;
@@ -51,10 +53,8 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     private List<Project> projectList = new ArrayList<>();
 
     /**
-     * List of all projects available in the application
+     * List of all repository's class in the application
      */
-    public TaskRepository taskRepository;
-    public ProjectDataRepository projectRepository;
 
         /**
      * The adapter which handles the list of tasks
@@ -110,7 +110,12 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         Context context = getApplicationContext();
         TodocDatabase.getInstance(context);
 
-        taskList = TaskRepository.getTasks();
+        TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
+        TaskRepository taskRepository = new TaskRepository(taskDao);
+        taskList = taskRepository.getTasks();
+
+        ProjectDao projectDao = TodocDatabase.getInstance(context).projectDao();
+        ProjectRepository projectRepository = new ProjectRepository(projectDao);
         projectList = projectRepository.getAllProjects();
 
         setContentView(R.layout.activity_main);
@@ -157,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
 
     @Override
     public void onDeleteTask(Task task) {
-        taskRepository.deleteTask(task.getId());
+  //      taskRepository.deleteTask(task.getId());
         updateTasks();
     }
 
@@ -225,7 +230,12 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      * @param task the task to be added to the list
      */
     private void addTask(@NonNull Task task) {
+        Context context = getApplicationContext();
+        TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
+        TaskRepository taskRepository = new TaskRepository(taskDao);
         taskRepository.addTask(task);
+        taskRepository = new TaskRepository(taskDao);
+        taskList = taskRepository.getTasks();
         updateTasks();
     }
 
@@ -241,16 +251,16 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
             listTasks.setVisibility(View.VISIBLE);
             switch (sortMethod) {
                 case ALPHABETICAL:
-                    taskList = taskRepository.getTasksAZ();
+      //              taskList = taskRepository.getTasksAZ();
                     break;
                 case ALPHABETICAL_INVERTED:
-                    taskList = taskRepository.getTasksZA();
+      //              taskList = taskRepository.getTasksZA();
                     break;
                 case RECENT_FIRST:
-                    taskList = taskRepository.getTasksNewOld();
+      //              taskList = taskRepository.getTasksNewOld();
                     break;
                 case OLD_FIRST:
-                    taskList = taskRepository.getTasksOldNew();
+      //              taskList = taskRepository.getTasksOldNew();
                     break;
             }
             adapter.updateTasks(taskList);
