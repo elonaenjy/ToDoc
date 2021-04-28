@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         listTasks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         listTasks.setAdapter(adapter);
         updateTasks();
-//        adapter.updateTasks(taskList, projectList);
 
         findViewById(R.id.fab_add_task).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,8 +151,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
         TaskRepository taskRepository = new TaskRepository(taskDao);
         taskRepository.deleteTask(task.getId());
-        taskRepository = new TaskRepository(taskDao);
-        taskList = taskRepository.getTasks();
         updateTasks();
     }
 
@@ -225,8 +222,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
         TaskRepository taskRepository = new TaskRepository(taskDao);
         taskRepository.addTask(task);
-        taskRepository = new TaskRepository(taskDao);
-        taskList = taskRepository.getTasks();
         updateTasks();
     }
 
@@ -315,10 +310,19 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      * Sets the data of the Spinner with projects to associate to a new task
      */
     private void populateDialogSpinner() {
-        final ArrayAdapter<Project> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, projectList);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        if (dialogSpinner != null) {
-            dialogSpinner.setAdapter(adapter);
+        ArrayList<String> mProjectList = new ArrayList<>();
+
+        for (int mId = 1; mId <= projectList.size(); mId++) {
+            String mProjectName = projectList.get(mId - 1).getName();
+            mProjectList.add(mProjectName);
+            String[] mProjectArray = mProjectList.toArray(new String[0]);
+            final ArrayAdapter<String> adapter
+                    = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, mProjectArray);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            if (dialogSpinner != null) {
+                dialogSpinner.setAdapter(adapter);
+            }
         }
     }
 
