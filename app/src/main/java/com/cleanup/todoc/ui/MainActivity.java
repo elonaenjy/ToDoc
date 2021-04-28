@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      */
     private List<Project> projectList = new ArrayList<>();
 
-        /**
+    /**
      * The adapter which handles the list of tasks
      */
     private final TasksAdapter adapter = new TasksAdapter(taskList, projectList, this);
@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      * @param dialogInterface the current displayed dialog
      */
     private void onPositiveButtonClick(DialogInterface dialogInterface) {
+
         // If dialog is open
         if (dialogEditText != null && dialogSpinner != null) {
             // Get the name of the task
@@ -167,9 +168,8 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
 
             // Get the selected project to be associated to the task
             Project taskProject = null;
-            if (dialogSpinner.getSelectedItem() instanceof Project) {
-                taskProject = (Project) dialogSpinner.getSelectedItem();
-            }
+            taskProject = getProjectFromProjectNameSelected();
+
 
             // If a name has not been set
             if (taskName.trim().isEmpty()) {
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
             }
             // If both project and name of the task have been set
             else if (taskProject != null) {
-                    Task task = new Task(
+                Task task = new Task(
                         taskProject.getId(),
                         taskName,
                         new Date().getTime()
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
                 dialogInterface.dismiss();
             }
             // If name has been set, but project has not been set (this should never occur)
-            else{
+            else {
                 dialogInterface.dismiss();
             }
         }
@@ -196,6 +196,18 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         else {
             dialogInterface.dismiss();
         }
+    }
+
+    // Gets the Room object from the Room name selected in the Spinner
+    private Project getProjectFromProjectNameSelected() {
+        Project projectTask = null;
+        for (int mId = 0; mId < projectList.size(); mId++) {
+            projectTask = projectList.get(mId);
+            if (projectTask.getName().equals(dialogSpinner.getSelectedItem())) {
+                mId = projectList.size() + 1;
+            }
+        }
+        return (projectTask);
     }
 
     /**
