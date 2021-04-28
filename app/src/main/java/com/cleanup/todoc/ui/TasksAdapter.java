@@ -1,6 +1,5 @@
 package com.cleanup.todoc.ui;
 
-import android.content.Context;
 import android.content.res.ColorStateList;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -11,13 +10,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cleanup.todoc.R;
-import com.cleanup.todoc.database.TodocDatabase;
-import com.cleanup.todoc.database.dao.ProjectDao;
-import com.cleanup.todoc.database.dao.TaskDao;
 import com.cleanup.todoc.model.Project;
 import com.cleanup.todoc.model.Task;
-import com.cleanup.todoc.service.ProjectRepository;
-import com.cleanup.todoc.service.TaskRepository;
 
 import java.util.List;
 
@@ -45,8 +39,9 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * Instantiates a new TasksAdapter.
      *
      * @param tasks the list of tasks the adapter deals with to set
+     * @param projectList
      */
-    TasksAdapter(@NonNull final List<Task> tasks, @NonNull final DeleteTaskListener deleteTaskListener) {
+    TasksAdapter(@NonNull final List<Task> tasks, List<Project> projectList, @NonNull final DeleteTaskListener deleteTaskListener) {
         this.taskList = tasks;
         this.deleteTaskListener = deleteTaskListener;
     }
@@ -55,9 +50,11 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
      * Updates the list of tasks the adapter deals with.
      *
      * @param tasks the list of tasks the adapter deals with to set
+     * @param projectList
      */
-    void updateTasks(@NonNull final List<Task> tasks) {
+    void updateTasks(@NonNull final List<Task> tasks, List<Project> projectList) {
         this.taskList = tasks;
+        this.projectList = projectList;
         notifyDataSetChanged();
     }
 
@@ -70,7 +67,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder taskViewHolder, int position) {
-        taskViewHolder.bind(taskList.get(position));
+        taskViewHolder.bind(taskList.get(position), projectList);
     }
 
     @Override
@@ -153,11 +150,11 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
          *
          * @param task the task to bind in the item view
          */
-        void bind(Task task) {
+        void bind(Task task, List<Project> projectList) {
             lblTaskName.setText(task.getName());
             imgDelete.setTag(task);
 
-            final Project taskProject = getProject(task.getProjectId());
+            final Project taskProject = getProject(task.getProjectId(), projectList);
             if (taskProject != null) {
                 imgProject.setSupportImageTintList(ColorStateList.valueOf(taskProject.getColor()));
                 lblProjectName.setText(taskProject.getName());
@@ -168,10 +165,10 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHold
         }
 
 
-        private Project getProject(long projectId) {
+        private Project getProject(long projectId, List<Project> projectList) {
             Project project = null;
-            if (projectList != null) {
-                for (Project p : projectList)
+            if (TasksAdapter.this.projectList != null) {
+                for (Project p : TasksAdapter.this.projectList)
                     if (p.getId() == projectId) {
                         project = p;
                     }

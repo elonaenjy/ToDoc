@@ -49,17 +49,12 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     /**
      * List of all current project of the application
      */
-
     private List<Project> projectList = new ArrayList<>();
-
-    /**
-     * List of all repository's class in the application
-     */
 
         /**
      * The adapter which handles the list of tasks
      */
-    private final TasksAdapter adapter = new TasksAdapter(taskList, this);
+    private final TasksAdapter adapter = new TasksAdapter(taskList, projectList, this);
 
     /**
      * The sort method to be used to display tasks
@@ -107,16 +102,6 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         /**
          * List of all projects available in the application
          */
-        Context context = getApplicationContext();
-        TodocDatabase.getInstance(context);
-
-        TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
-        TaskRepository taskRepository = new TaskRepository(taskDao);
-        taskList = taskRepository.getTasks();
-
-        ProjectDao projectDao = TodocDatabase.getInstance(context).projectDao();
-        ProjectRepository projectRepository = new ProjectRepository(projectDao);
-        projectList = projectRepository.getAllProjects();
 
         setContentView(R.layout.activity_main);
 
@@ -124,8 +109,9 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         lblNoTasks = findViewById(R.id.lbl_no_task);
 
         listTasks.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
         listTasks.setAdapter(adapter);
+        updateTasks();
+//        adapter.updateTasks(taskList, projectList);
 
         findViewById(R.id.fab_add_task).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,7 +148,12 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
 
     @Override
     public void onDeleteTask(Task task) {
-  //      taskRepository.deleteTask(task.getId());
+        Context context = getApplicationContext();
+        TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
+        TaskRepository taskRepository = new TaskRepository(taskDao);
+        taskRepository.deleteTask(task.getId());
+        taskRepository = new TaskRepository(taskDao);
+        taskList = taskRepository.getTasks();
         updateTasks();
     }
 
@@ -243,27 +234,38 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      * Updates the list of tasks in the UI
      */
     private void updateTasks() {
+        Context context = getApplicationContext();
+        ProjectDao projectDao = TodocDatabase.getInstance(context).projectDao();
+        ProjectRepository projectRepository = new ProjectRepository(projectDao);
+        projectList = projectRepository.getAllProjects();
+        TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
+        TaskRepository taskRepository = new TaskRepository(taskDao);
+        switch (sortMethod) {
+            case ALPHABETICAL:
+                taskList = taskRepository.getTasksAZ();
+                break;
+            case ALPHABETICAL_INVERTED:
+                taskList = taskRepository.getTasksZA();
+                break;
+            case RECENT_FIRST:
+                taskList = taskRepository.getTasksNewOld();
+                break;
+            case OLD_FIRST:
+                taskList = taskRepository.getTasksOldNew();
+                break;
+            default:
+                taskList = taskRepository.getTasks();
+                break;
+        }
+
         if (taskList.size() == 0) {
             lblNoTasks.setVisibility(View.VISIBLE);
             listTasks.setVisibility(View.GONE);
         } else {
             lblNoTasks.setVisibility(View.GONE);
             listTasks.setVisibility(View.VISIBLE);
-            switch (sortMethod) {
-                case ALPHABETICAL:
-      //              taskList = taskRepository.getTasksAZ();
-                    break;
-                case ALPHABETICAL_INVERTED:
-      //              taskList = taskRepository.getTasksZA();
-                    break;
-                case RECENT_FIRST:
-      //              taskList = taskRepository.getTasksNewOld();
-                    break;
-                case OLD_FIRST:
-      //              taskList = taskRepository.getTasksOldNew();
-                    break;
-            }
-            adapter.updateTasks(taskList);
+
+            adapter.updateTasks(taskList, projectList);
         }
     }
 
