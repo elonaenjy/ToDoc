@@ -61,7 +61,9 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
      */
     @NonNull
     private SortMethod sortMethod = SortMethod.NONE;
+    public int tri;
 
+    public static final String BUNDLE_STATE_TRI = "currentSort";
     /**
      * Dialog to create a new task
      */
@@ -99,6 +101,11 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            tri = savedInstanceState.getInt(BUNDLE_STATE_TRI);
+        } else {
+            tri = 0;
+        }
         /**
          * List of all projects available in the application
          */
@@ -123,21 +130,27 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actions, menu);
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        tri = 0;
 
         if (id == R.id.filter_alphabetical) {
             sortMethod = SortMethod.ALPHABETICAL;
+            tri = 1;
         } else if (id == R.id.filter_alphabetical_inverted) {
             sortMethod = SortMethod.ALPHABETICAL_INVERTED;
+            tri = 2;
         } else if (id == R.id.filter_oldest_first) {
             sortMethod = SortMethod.OLD_FIRST;
+            tri = 3;
         } else if (id == R.id.filter_recent_first) {
             sortMethod = SortMethod.RECENT_FIRST;
+            tri = 4;
         }
 
         updateTasks();
@@ -154,6 +167,11 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         updateTasks();
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt(BUNDLE_STATE_TRI, tri);
+        super.onSaveInstanceState(outState);
+    }
     /**
      * Called when the user clicks on the positive button of the Create Task Dialog.
      *
@@ -247,17 +265,17 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         projectList = projectRepository.getAllProjects();
         TaskDao taskDao = TodocDatabase.getInstance(context).taskDao();
         TaskRepository taskRepository = new TaskRepository(taskDao);
-        switch (sortMethod) {
-            case ALPHABETICAL:
+        switch (tri) {
+            case 1:
                 taskList = taskRepository.getTasksAZ();
                 break;
-            case ALPHABETICAL_INVERTED:
+            case 2:
                 taskList = taskRepository.getTasksZA();
                 break;
-            case RECENT_FIRST:
+            case 3:
                 taskList = taskRepository.getTasksNewOld();
                 break;
-            case OLD_FIRST:
+            case 4:
                 taskList = taskRepository.getTasksOldNew();
                 break;
             default:

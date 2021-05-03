@@ -162,21 +162,21 @@ public class MainActivityInstrumentedTest {
         onView(withId(R.id.action_filter)).perform(click());
         onView(ViewMatchers.withText(R.string.sort_oldest_first)).perform(click());
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(0, R.id.lbl_task_name))
-                .check(ViewAssertions.matches(ViewMatchers.withText("aaa Tâche example")));
+                .check(ViewAssertions.matches(ViewMatchers.withText("hhh Tâche example")));
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(1, R.id.lbl_task_name))
                 .check(ViewAssertions.matches(ViewMatchers.withText("zzz Tâche example")));
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(2, R.id.lbl_task_name))
-                .check(ViewAssertions.matches(ViewMatchers.withText("hhh Tâche example")));
+                .check(ViewAssertions.matches(ViewMatchers.withText("aaa Tâche example")));
 
         // Sort recent first
         onView(withId(R.id.action_filter)).perform(click());
         onView(ViewMatchers.withText(R.string.sort_recent_first)).perform(click());
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(0, R.id.lbl_task_name))
-                .check(ViewAssertions.matches(ViewMatchers.withText("hhh Tâche example")));
+                .check(ViewAssertions.matches(ViewMatchers.withText("aaa Tâche example")));
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(1, R.id.lbl_task_name))
                 .check(ViewAssertions.matches(ViewMatchers.withText("zzz Tâche example")));
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(2, R.id.lbl_task_name))
-                .check(ViewAssertions.matches(ViewMatchers.withText("aaa Tâche example")));
+                .check(ViewAssertions.matches(ViewMatchers.withText("hhh Tâche example")));
 
         onView(withRecyclerView(R.id.list_tasks).atPositionOnView(0, R.id.img_delete))
                 .perform(click());

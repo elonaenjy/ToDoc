@@ -572,8 +572,8 @@ jQuery.cookie = function(name, value, options) {
 <body>
 <div id="container">
 <div id="header">
-<div class="time" xmlns="">27.51 s</div>
-<h1>Tests in 'com.cleanup.todoc': <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">1 total, </span><span class="passed">1 passed</span></strong>
+<div class="time" xmlns="">23.90 s</div>
+<h1>Tests in 'com.cleanup.todoc': <strong><span class="total" xmlns="http://www.w3.org/1999/xhtml">3 total, </span><span class="passed">3 passed</span></strong>
 </h1>
 <div id="treecontrol">
 <ul>
@@ -589,196 +589,25 @@ jQuery.cookie = function(name, value, options) {
 </div>
 <div id="content">
 <ul id="tree">
-<li class="level test" xmlns="">
+<li xmlns="" class="level top open">
 <span><em class="time">
-<div class="time">27.51 s</div>
-</em><em class="status">passed</em>sortTasks</span>
+<div class="time">23.90 s</div>
+</em>com.cleanup.todoc.MainActivityInstrumentedTest</span>
 <ul>
-<li class="text">
-<span class="stdout">W/art: Before Android 4.1, method android.graphics.PorterDuffColorFilter androidx.vectordrawable.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable<br/></span>
+<li class="level test">
+<span><em class="time">
+<div class="time">3.71 s</div>
+</em><em class="status">passed</em>addAndRemoveTask</span>
 </li>
-<li class="text">
-<span class="stdout">D/LifecycleMonitor: Lifecycle status change: com.cleanup.todoc.ui.MainActivity@4661d15 in: PRE_ON_CREATE<br/></span>
+<li class="level test">
+<span><em class="time">
+<div class="time">9.43 s</div>
+</em><em class="status">passed</em>sortTasksThenRotateScreen</span>
 </li>
-<li class="text">
-<span class="stdout">I/art: Rejecting re-init on previously-failed class java.lang.Class&lt;androidx.core.view.ViewCompat$2&gt;: java.lang.NoClassDefFoundError: Failed resolution of: Landroid/view/View$OnUnhandledKeyEventListener;<br/>I/art:     at void androidx.core.view.ViewCompat.setBackground(android.view.View, android.graphics.drawable.Drawable) (ViewCompat.java:2559)<br/>        at void androidx.appcompat.widget.ActionBarContainer.&lt;init&gt;(android.content.Context, android.util.AttributeSet) (ActionBarContainer.java:63)<br/>        at java.lang.Object java.lang.reflect.Constructor.newInstance0!(java.lang.Object[]) (Constructor.java:-2)<br/>        at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:430)<br/>        at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:645)<br/>        at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:787)<br/>        at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:727)<br/>        at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:858)<br/>        at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:821)<br/>        at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:518)<br/>        at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:426)<br/>        at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:377)<br/>I/art:     at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:749)<br/>        at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:659)<br/>        at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:552)<br/>        at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:161)<br/>        at void com.cleanup.todoc.ui.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:106)<br/>        at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6662)<br/>        at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1118)<br/>        at void androidx.test.runner.MonitoringInstrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (MonitoringInstrumentation.java:702)<br/>        at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2599)<br/>        at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2707)<br/>        at void android.app.ActivityThread.-wrap12(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)<br/>        at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1460)<br/>        at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:102)<br/>        at void android.os.Looper.loop() (Looper.java:154)<br/>        at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6077)<br/>        at java.lang.Object java.lang.reflect.Method.invoke!(java.lang.Object, java.lang.Object[]) (Method.java:-2)<br/>I/art:     at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:866)<br/>        at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:756)<br/>    Caused by: java.lang.ClassNotFoundException: Didn&#39;t find class &quot;android.view.View$OnUnhandledKeyEventListener&quot; on path: DexPathList[[zip file &quot;/system/framework/android.test.runner.jar&quot;, zip file &quot;/data/app/com.cleanup.todoc.test-1/base.apk&quot;, zip file &quot;/data/app/com.cleanup.todoc-2/base.apk&quot;],nativeLibraryDirectories=[/data/app/com.cleanup.todoc.test-1/lib/x86, /data/app/com.cleanup.todoc-2/lib/x86, /system/lib, /vendor/lib]]<br/>        at java.lang.Class dalvik.system.BaseDexClassLoader.findClass(java.lang.String) (BaseDexClassLoader.java:56)<br/>        at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String, boolean) (ClassLoader.java:380)<br/>        at java.lang.Class java.lang.ClassLoader.loadClass(java.lang.String) (ClassLoader.java:312)<br/>        at void androidx.core.view.ViewCompat.setBackground(android.view.View, android.graphics.drawable.Drawable) (ViewCompat.java:2559)<br/>        at void androidx.appcompat.widget.ActionBarContainer.&lt;init&gt;(android.content.Context, android.util.AttributeSet) (ActionBarContainer.java:63)<br/>        at java.lang.Object java.lang.reflect.Constructor.newInstance0!(java.lang.Object[]) (Constructor.java:-2)<br/>        at java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[]) (Constructor.java:430)<br/>        at android.view.View android.view.LayoutInflater.createView(java.lang.String, java.lang.String, android.util.AttributeSet) (LayoutInflater.java:645)<br/>        at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:787)<br/>        at android.view.View android.view.LayoutInflater.createViewFromTag(android.view.View, java.lang.String, android.content.Context, android.util.AttributeSet) (LayoutInflater.java:727)<br/>        at void android.view.LayoutInflater.rInflate(org.xmlpull.v1.XmlPullParser, android.view.View, android.content.Context, android.util.AttributeSet, boolean) (LayoutInflater.java:858)<br/>        at void android.view.LayoutInflater.rInflateChildren(org.xmlpull.v1.XmlPullParser, android.view.View, android.util.AttributeSet, boolean) (LayoutInflater.java:821)<br/>        at android.view.View android.view.LayoutInflater.inflate(org.xmlpull.v1.XmlPullParser, android.view.ViewGroup, boolean) (LayoutInflater.java:518)<br/>        at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup, boolean) (LayoutInflater.java:426)<br/>I/art:     at android.view.View android.view.LayoutInflater.inflate(int, android.view.ViewGroup) (LayoutInflater.java:377)<br/>        at android.view.ViewGroup androidx.appcompat.app.AppCompatDelegateImpl.createSubDecor() (AppCompatDelegateImpl.java:749)<br/>        at void androidx.appcompat.app.AppCompatDelegateImpl.ensureSubDecor() (AppCompatDelegateImpl.java:659)<br/>        at void androidx.appcompat.app.AppCompatDelegateImpl.setContentView(int) (AppCompatDelegateImpl.java:552)<br/>        at void androidx.appcompat.app.AppCompatActivity.setContentView(int) (AppCompatActivity.java:161)<br/>        at void com.cleanup.todoc.ui.MainActivity.onCreate(android.os.Bundle) (MainActivity.java:106)<br/>        at void android.app.Activity.performCreate(android.os.Bundle) (Activity.java:6662)<br/>        at void android.app.Instrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (Instrumentation.java:1118)<br/>        at void androidx.test.runner.MonitoringInstrumentation.callActivityOnCreate(android.app.Activity, android.os.Bundle) (MonitoringInstrumentation.java:702)<br/>        at android.app.Activity android.app.ActivityThread.performLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent) (ActivityThread.java:2599)<br/>        at void android.app.ActivityThread.handleLaunchActivity(android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:2707)<br/>        at void android.app.ActivityThread.-wrap12(android.app.ActivityThread, android.app.ActivityThread$ActivityClientRecord, android.content.Intent, java.lang.String) (ActivityThread.java:-1)<br/>        at void android.app.ActivityThread$H.handleMessage(android.os.Message) (ActivityThread.java:1460)<br/>        at void android.os.Handler.dispatchMessage(android.os.Message) (Handler.java:102)<br/>        at void android.os.Looper.loop() (Looper.java:154)<br/>        at void android.app.ActivityThread.main(java.lang.String[]) (ActivityThread.java:6077)<br/>        at java.lang.Object java.lang.reflect.Method.invoke!(java.lang.Object, java.lang.Object[]) (Method.java:-2)<br/>        at void com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run() (ZygoteInit.java:866)<br/>        at void com.android.internal.os.ZygoteInit.main(java.lang.String[]) (ZygoteInit.java:756)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/LifecycleMonitor: Lifecycle status change: com.cleanup.todoc.ui.MainActivity@4661d15 in: CREATED<br/>D/LifecycleMonitor: Lifecycle status change: com.cleanup.todoc.ui.MainActivity@4661d15 in: STARTED<br/>D/LifecycleMonitor: Lifecycle status change: com.cleanup.todoc.ui.MainActivity@4661d15 in: RESUMED<br/>D/: HostConnection::get() New Host Connection established 0x9e623200, tid 26371<br/>D/: HostConnection::get() New Host Connection established 0x9e623500, tid 26398<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/OpenGLRenderer: Initialized EGL, version 1.4<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/OpenGLRenderer: Swap behavior 1<br/></span>
-</li>
-<li class="text">
-<span class="stdout">W/OpenGLRenderer: Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/OpenGLRenderer: Swap behavior 0<br/>D/EGL_emulation: eglCreateContext: 0x9e5a1d00: maj 2 min 0 rcv 2<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">W/art: Before Android 4.1, method int androidx.appcompat.widget.DropDownListView.lookForSelectablePosition(int, boolean) would have incorrectly overridden the package-private method in android.widget.ListView<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/art: Do partial code cache collection, code=27KB, data=30KB<br/>I/art: After code cache collection, code=26KB, data=30KB<br/>    Increasing code cache capacity to 128KB<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EventInjectionStrategy: Creating injection strategy with input manager.<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/fab_add_task<br/>I/art: Do partial code cache collection, code=36KB, data=44KB<br/>I/art: After code cache collection, code=35KB, data=43KB<br/>    Increasing code cache capacity to 256KB<br/>I/art: JIT allocated 61KB for compiled code of void android.widget.TextView.&lt;init&gt;(android.content.Context, android.util.AttributeSet, int, int)<br/>    Compiler allocated 4MB to compile void android.widget.TextView.&lt;init&gt;(android.content.Context, android.util.AttributeSet, int, int)<br/>I/art: Do full code cache collection, code=102KB, data=76KB<br/>I/art: After code cache collection, code=97KB, data=56KB<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/art: Do partial code cache collection, code=119KB, data=73KB<br/>    After code cache collection, code=119KB, data=73KB<br/>    Increasing code cache capacity to 512KB<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;replace text(aaa Tâche example)&#39; action on view with id: com.cleanup.todoc:id/txt_task_name<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with id: android:id/button1<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">W/IInputConnectionWrapper: finishComposingText on inactive InputConnection<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/fab_add_task<br/>I/art: JIT allocated 60KB for compiled code of void android.widget.TextView.&lt;init&gt;(android.content.Context, android.util.AttributeSet, int, int)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;replace text(zzz Tâche example)&#39; action on view with id: com.cleanup.todoc:id/txt_task_name<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with id: android:id/button1<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">W/IInputConnectionWrapper: finishComposingText on inactive InputConnection<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/art: Do full code cache collection, code=250KB, data=161KB<br/>I/art: After code cache collection, code=186KB, data=106KB<br/>I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/fab_add_task<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;replace text(hhh Tâche example)&#39; action on view with id: com.cleanup.todoc:id/txt_task_name<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with id: android:id/button1<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">W/IInputConnectionWrapper: finishComposingText on inactive InputConnection<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;aaa Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;zzz Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;hhh Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/action_filter<br/></span>
-</li>
-<li class="text">
-<span class="stdout">W/art: Before Android 4.1, method int androidx.appcompat.widget.MenuPopupWindow$MenuDropDownListView.lookForSelectablePosition(int, boolean) would have incorrectly overridden the package-private method in android.widget.ListView<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/art: Do partial code cache collection, code=247KB, data=172KB<br/>I/art: After code cache collection, code=241KB, data=173KB<br/>    Increasing code cache capacity to 1024KB<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with string from resource id: &lt;2131689558&gt;[sort_alphabetical] value: A -&gt; Z<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;aaa Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;hhh Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;zzz Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/action_filter<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/OpenGLRenderer: endAllActiveAnimators on 0x8a54f680 (MenuPopupWindow$MenuDropDownListView) with handle 0x8ac7fff0<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with string from resource id: &lt;2131689559&gt;[sort_alphabetical_invert] value: Z -&gt; A<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;zzz Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;hhh Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;aaa Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/action_filter<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/OpenGLRenderer: endAllActiveAnimators on 0x8a552e80 (MenuPopupWindow$MenuDropDownListView) with handle 0x8ac6e1a0<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with string from resource id: &lt;2131689560&gt;[sort_oldest_first] value: Les plus anciens d’abord<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;aaa Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;zzz Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/OpenGLRenderer: endAllActiveAnimators on 0x8a3c5f00 (MenuPopupWindow$MenuDropDownListView) with handle 0x8ac6e880<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;hhh Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/action_filter<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/art: Do full code cache collection, code=499KB, data=344KB<br/>    After code cache collection, code=482KB, data=291KB<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with string from resource id: &lt;2131689561&gt;[sort_recent_first] value: Les plus récents d’abord<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;hhh Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;zzz Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Checking &#39;MatchesViewAssertion{viewMatcher=with text: is &quot;aaa Tâche example&quot;}&#39; assertion on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/list_tasks<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/>D/OpenGLRenderer: endAllActiveAnimators on 0x8a3a0d00 (MenuPopupWindow$MenuDropDownListView) with handle 0x8ac6ec90<br/>D/EGL_emulation: eglMakeCurrent: 0x9e5a1d00: ver 2 0 (tinfo 0x9ba5fcc0)<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/list_tasks<br/>I/ViewInteraction: Performing &#39;single click&#39; action on view with id: com.cleanup.todoc:id/list_tasks<br/></span>
-</li>
-<li class="text">
-<span class="stdout">D/LifecycleMonitor: Lifecycle status change: com.cleanup.todoc.ui.MainActivity@4661d15 in: PAUSED<br/>    running callback: androidx.test.rule.ActivityTestRule$LifecycleCallback@b76c842<br/>D/LifecycleMonitor: callback completes: androidx.test.rule.ActivityTestRule$LifecycleCallback@b76c842<br/></span>
-</li>
-<li class="text">
-<span class="stdout">I/TestRunner: finished: sortTasks(com.cleanup.todoc.MainActivityInstrumentedTest)<br/></span>
+<li class="level test">
+<span><em class="time">
+<div class="time">10.76 s</div>
+</em><em class="status">passed</em>sortTasks</span>
 </li>
 </ul>
 </li>
@@ -786,7 +615,7 @@ jQuery.cookie = function(name, value, options) {
 </div>
 </div>
 <div id="footer">
-<p>Generated by Android Studio on 03/05/21 14:13</p>
+<p>Generated by Android Studio on 03/05/21 17:37</p>
 </div>
 </body>
 </html>
