@@ -73,16 +73,5 @@ public abstract class TodocDatabase extends RoomDatabase {
         };
     }
 
-
-    private final static RoomDatabase.Callback roomCallBack = new RoomDatabase.Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            TaskDao taskDao = null;
-            databaseWriteExecutor.execute(() -> {
-                List<Task> taskList = taskDao.getAllTask();
-            });
-        }
-    };
 }
 
